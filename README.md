@@ -36,20 +36,22 @@ $ java -jar target\money-transfer-1.0.0-SNAPSHOT-fat.jar
          <td>-</td>
          <td>
             <pre>
-{
-  "accountId": 15671753194731,
-  "name": "Laxman",
-  "balance": 1000.0,
-  "currency": "USD",
-  "createdTime": "2019-08-25T13:52Z"
-},
-{
-  "accountId": 15671753194732,
-  "name": "CustomerName",
-  "balance": 1000.0,
-  "currency": "USD",
-  "createdTime": "2019-08-25T13:52Z"
-}
+[
+   {
+     "accountId": 15671753194731,
+     "name": "Laxman",
+     "balance": 1000.0,
+     "currency": "USD",
+     "createdTime": "2019-08-25T13:52Z"
+   },
+   {
+     "accountId": 15671753194732,
+     "name": "CustomerName",
+     "balance": 1000.0,
+     "currency": "USD",
+     "createdTime": "2019-08-25T13:52Z"
+   }
+]
             </pre>
          </td>
       </tr>
@@ -119,7 +121,88 @@ $ java -jar target\money-transfer-1.0.0-SNAPSHOT-fat.jar
 </table>
 
 #### Transfer API
-
+<table>
+   <thead>
+      <tr>
+         <th>Endpoint</th>
+         <th>Description</th>
+         <th>Parameters</th>
+         <th>Response</th>
+      </tr>
+   </thead>
+   <tbody>
+      <tr>
+         <td><code>GET /transfers</code></td>
+         <td>Gives all transfers details</td>
+         <td>-</td>
+         <td>
+            <pre>
+[
+  {
+    "transferId": "7acc9b0d-3c57-4c3d-8215-945e9c823a60",
+    "sourceAccountId": 15671753194731,
+    "targetAccountId": 15671753194732,
+    "amount": 10.0,
+    "currency": "USD",
+    "comment": "Test"
+  },
+  {
+    "transferId": "2a2a817e-be7b-49f7-a488-eb4098ccd2e4",
+    "sourceAccountId": 15671753194732,
+    "targetAccountId": 15671753194733,
+    "amount": 10.0,
+    "currency": "USD",
+    "comment": "Test"
+  }
+]
+            </pre>
+         </td>
+      </tr>
+      <tr>
+         <td><code>GET /transfers/id </code></td>
+         <td>Gives transfer detail of input id</td>
+         <td>Transfer Id</td>
+         <td>
+            <pre>
+{
+   "transferId": "7acc9b0d-3c57-4c3d-8215-945e9c823a60",
+   "sourceAccountId": 15671753194731,
+   "targetAccountId": 15671753194732,
+   "amount": 10.0,
+   "currency": "USD",
+   "comment": "Test"
+}
+            </pre>
+         </td>
+      </tr>
+      <tr>
+         <td><code>POST /transfers </code></td>
+         <td>Transfer money between accounts</td>
+         <td> Request Body           
+            <pre>
+{
+    "sourceAccountId": 15671753194732,
+    "targetAccountId": 15671753194731,
+    "amount": "8.00",
+    "currency": "USD",
+    "comment": "Test"
+}
+            </pre></td>
+         <td>
+            <pre>
+{
+  "message": "transfer request processed",
+  "status": 200,
+  "transferId": "1778c767-e4a6-4bed-b855-40b64c9b14c1",
+  "transferState": "COMPLETED",
+  "transferDate": "2019-08-25T18:54Z"
+}
+            </pre>
+         </td>
+      </tr>
+       
+   </tbody>
+</table>
 
 ### Design
 

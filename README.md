@@ -205,7 +205,7 @@ $ java -jar target\money-transfer-1.0.0-SNAPSHOT-fat.jar
 </table>
 
 ### Application Design
-> Comming sooooooon
+> Coming sooooooon
 
 ### Testing
 > Working on Unit and Integration test cases, soon will be available

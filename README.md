@@ -4,13 +4,13 @@
 - Demo with tests on rest API.
 
 ### Proposed Solution
-- Building RESTful APIs on Reactive programming and events model.
+- Building RESTful APIs on Reactive programming and Events Driven Model.
 - API execution is asynchronous and non-blocking.
-- A lightweight REST API, fast to develop, faster to build, fastest to deploy.
+- A lightweight REST API which is fast to develop, faster to build, fastest to deploy.
 
 
 ### Start Program
-First build application and then execute it. It will deploy REST API on port **8080** and API endpoints will be bounded to the localhost
+First build program and then execute it. It will deploy REST API on port **8080** and API endpoints will be bounded to the localhost
 
 ```sh
 $ mvn clean install
@@ -204,10 +204,18 @@ $ java -jar target\money-transfer-1.0.0-SNAPSHOT-fat.jar
    </tbody>
 </table>
 
-### Design
+### Application Design
 
 
 ### Testing
 > Working on Unit and Integration test cases, soon will be available
 
 ### Built on
+| Library | References |
+| -----------------| ---------- |
+| RxJava | https://github.com/ReactiveX/RxJava |
+| Vert.x | https://vertx.io/ |
+| Guice  | https://github.com/google/guice |
+
+
+

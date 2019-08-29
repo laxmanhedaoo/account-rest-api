@@ -250,7 +250,7 @@ http://localhost:8090/api/v1/accounts/
 </table>
 
 ### Application Design
-- SOLID principles
+- SOLID & GRASP principles
 - Domain Driven Design
 - Reactive Programming model usin Vertx
 - Functional Programming

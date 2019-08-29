@@ -253,7 +253,7 @@ http://localhost:8090/api/v1/accounts/
 - SOLID & GRASP principles
 - Domain Driven Design
 - Reactive Programming model usin Vertx
-- Functional Programming
+- Functional Programming at few places
 - Few design patterns 
 - In memory data store
 

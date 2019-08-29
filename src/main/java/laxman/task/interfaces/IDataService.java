@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 import laxman.task.model.Account;
+import laxman.task.model.Amount;
 import laxman.task.model.Transfer;
 
 /**
@@ -26,4 +27,8 @@ public interface IDataService {
 	List<Transfer> findAllTransfers();
 
 	void update(Account account);
+
+	void withdraw(Long accountId, Amount amount);
+
+	void deposit(Long accountId, Amount amount);
 }

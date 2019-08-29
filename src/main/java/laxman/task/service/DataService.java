@@ -10,6 +10,7 @@ import laxman.task.cache.DataStore;
 import laxman.task.config.BeanInjector;
 import laxman.task.interfaces.IDataService;
 import laxman.task.model.Account;
+import laxman.task.model.Amount;
 import laxman.task.model.Transfer;
 import lombok.SneakyThrows;
 
@@ -57,6 +58,18 @@ public class DataService implements IDataService {
 	@Override
 	public void update(Account account) {
 		dataStore.update(account);
+	}
+
+	@Override
+	public void withdraw(Long accountId, Amount amount) {
+		// TODO Auto-generated method stub
+		dataStore.withdraw(accountId, amount.getMoney());
+	}
+
+	@Override
+	public void deposit(Long accountId, Amount amount) {
+		// TODO Auto-generated method stub
+		dataStore.deposit(accountId,amount.getMoney());
 	}
 
 }

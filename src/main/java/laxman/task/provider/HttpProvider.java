@@ -8,7 +8,8 @@ import io.vertx.core.AsyncResult;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.json.Json;
-import io.vertx.core.json.JsonObject;
+import io.vertx.core.logging.Logger;
+import io.vertx.core.logging.LoggerFactory;
 import laxman.task.enums.TransferStateEnum;
 import laxman.task.model.Account;
 import laxman.task.model.AccountResponsePayload;
@@ -22,6 +23,8 @@ import laxman.task.model.TransferResponsePayload;
  */
 public class HttpProvider {
 
+	private Logger LOG = LoggerFactory.getLogger(HttpProvider.class);
+	
 	public Set<String> allowHeaders() {
 		Set<String> headers = new HashSet<>();
 		headers.add("x-requested-with");
@@ -54,19 +57,23 @@ public class HttpProvider {
 	}
 
 	private void sendSuccess(HttpServerResponse response) {
+		LOG.info("200;");
 		response.setStatusCode(200).putHeader("content-type", "application/json; charset=utf-8").end();
 	}
 
 	private void sendSuccess(String responseBody, HttpServerResponse response) {
+		LOG.info("200;request processed");
 		response.setStatusCode(200).putHeader("content-type", "application/json; charset=utf-8").end(responseBody);
 	}
 
 	public void sendHttpResponse(ResponsePayload payload, HttpServerResponse response) {
+		LOG.info(payload.getStatus() + ";" + Json.encodePrettily(payload));
 		response.setStatusCode(payload.getStatus()).putHeader("content-type", "application/json; charset=utf-8")
 				.end(Json.encodePrettily(payload));
 	}
 
 	public void sendHttpResponse(Object data, int status, HttpServerResponse response) {
+		LOG.info(status + ";" + Json.encodePrettily(data));
 		response.setStatusCode(status).putHeader("content-type", "application/json; charset=utf-8")
 				.end(Json.encodePrettily(data));
 	}

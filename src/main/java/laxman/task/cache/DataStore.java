@@ -87,4 +87,14 @@ public class DataStore {
 		return transfers.stream().filter(t -> t.getTransferId().equals(transferId)).findFirst();
 	}
 
+	public void withdraw(Long accountId, Double money) {
+		Account account = findById(accountId).get();
+		account.setBalance(account.getBalance() - money);
+		
+	}
+	public void deposit(Long accountId, Double money) {
+		Account account = findById(accountId).get();
+		account.setBalance(account.getBalance() + money);
+		
+	}
 }

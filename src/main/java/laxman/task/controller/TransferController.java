@@ -4,6 +4,8 @@ import java.util.Optional;
 import java.util.UUID;
 
 import io.vertx.core.json.Json;
+import io.vertx.core.logging.Logger;
+import io.vertx.core.logging.LoggerFactory;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import laxman.task.config.BeanInjector;
@@ -23,6 +25,7 @@ import laxman.task.validator.TransferValidator;
  */
 public class TransferController {
 
+	private Logger LOG = LoggerFactory.getLogger(TransferController.class);
 	private IService functionService = BeanInjector.getInstance(IService.class);
 	private TransferValidator validator = BeanInjector.getInstance(TransferValidator.class);
 	private HttpProvider httpProvider = BeanInjector.getInstance(HttpProvider.class);
@@ -40,6 +43,7 @@ public class TransferController {
 					context.response());
 		} else {
 			UUID transferId = UUID.fromString(context.request().getParam("id"));
+			LOG.info("Request to get details of " + transferId + " trasnfer");
 			IFunctionRequest request = TransferByIdFunction.Request.builder().transferId(transferId).context(context)
 					.build();
 			functionService.execute(new TransferByIdFunction(), request);
@@ -47,11 +51,13 @@ public class TransferController {
 	}
 
 	private void findAll(RoutingContext context) {
+		LOG.info("Request to get all transfers");
 		IFunctionRequest request = FindAllTransfersFunction.Request.builder().context(context).build();
 		functionService.execute(new FindAllTransfersFunction(), request);
 	}
 
 	private void transfer(RoutingContext context) {
+		LOG.info("Request to transfer money");
 		Optional<String> validateResponse = validator.validateTransfer(context.getBodyAsString());
 
 		if (validateResponse.isPresent()) {
@@ -60,6 +66,7 @@ public class TransferController {
 		} else {
 			Transfer transfer = Json.decodeValue(context.getBodyAsString(), Transfer.class);
 			transfer.setTransferId(UUID.randomUUID());
+			LOG.debug("Transfer request " + transfer);
 			IFunctionRequest request = SendTransferFunction.Request.builder().transfer(transfer).context(context)
 					.build();
 			functionService.execute(new SendTransferFunction(), request);

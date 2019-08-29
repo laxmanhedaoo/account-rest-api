@@ -36,8 +36,9 @@ public class HttpServer extends AbstractVerticle {
 	}
 
 	private void createServer(Router router, Future<Void> future) {
-		vertx.createHttpServer().requestHandler(router::accept).listen(Integer.valueOf(ConstantEnum.SERVER_PORT.val()),
-				ConstantEnum.SERVER_IP.val(), response -> {
+		
+		vertx.createHttpServer().requestHandler(router::accept).listen(Integer.valueOf(ConstantEnum.HOST_PORT.val()),
+				ConstantEnum.HOST.val(), response -> {
 					if (response.succeeded())
 						future.complete();
 					else

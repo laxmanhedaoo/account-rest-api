@@ -2,7 +2,8 @@ package laxman.task.enums;
 
 public enum ConstantEnum {
 
-	ACCOUNTS_KEY("accounts"), TRANSFER_KEY("transfers"), SERVER_PORT("8080"), SERVER_IP("0.0.0.0");
+	ACCOUNTS_KEY("accounts"), TRANSFER_KEY("transfers"), HOST_PORT("8090"), HOST("localhost");
+	
 
 	private ConstantEnum(String val) {
 		this.val = val;

@@ -255,6 +255,8 @@ http://localhost:8090/api/v1/accounts/
 - Reactive Programming model usin Vertx
 - Functional Programming
 - Few design patterns 
+- In memory data store
+
 
 ### Testing
 - Test cases added

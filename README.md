@@ -10,7 +10,7 @@
 
 
 ### Start Program
-First build program and then execute it. It will deploy REST API on port **8080** and API endpoints will be bounded to the localhost
+First build program and then execute it. It will deploy REST API on port **8090** and API endpoints will be bounded to the localhost
 
 ```sh
 $ mvn clean install

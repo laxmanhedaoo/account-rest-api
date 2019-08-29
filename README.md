@@ -120,6 +120,48 @@ http://localhost:8090/api/v1/accounts/
             </pre>
          </td>
       </tr>
+      <tr>
+         <td><code>POST /accounts/id/withdraw </code></td>
+         <td>Withdraw Amount on given account id</td>
+         <td> Account Id and
+        Request Body           
+            <pre>
+{
+    "money": 1000.0,
+    "currency": "USD"
+}
+            </pre>
+        </td>
+         <td>
+            <pre>
+{
+  "message": "Money withdrawn successfully",
+  "status": 200
+}
+            </pre>
+         </td>
+      </tr>
+      <tr>
+         <td><code>POST /accounts/id/deposit </code></td>
+         <td>Deposit Amount on given account id</td>
+         <td> Account Id and
+        Request Body           
+            <pre>
+{
+    "money": 1000.0,
+    "currency": "USD"
+}
+            </pre>
+        </td>
+         <td>
+            <pre>
+{
+  "message": "Money deposited successfully",
+  "status": 200
+}
+            </pre>
+         </td>
+      </tr>
    </tbody>
 </table>
 

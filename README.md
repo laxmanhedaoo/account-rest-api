@@ -17,6 +17,9 @@ $ mvn clean install
 $ java -jar target\money-transfer-1.0.0-SNAPSHOT-fat.jar
 ```
 
+### API URL
+http://localhost:8090/api/v1/accounts/
+
 ### API Endpoints
 
 #### Account API

@@ -250,14 +250,14 @@ http://localhost:8090/api/v1/accounts/
 </table>
 
 ### Application Design
-> SOLID principles
-> Domain Driven Design
-> Reactive Programming model usin Vertx
-> Functional Programming
-> Few design patterns 
+- SOLID principles
+- Domain Driven Design
+- Reactive Programming model usin Vertx
+- Functional Programming
+- Few design patterns 
 
 ### Testing
-> Test cases added
+- Test cases added
 
 ### Built on
 | Library | References |
